@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,26 +19,10 @@ Route::get('press', [FrontEndController::class,'press'])->name('press');
 
 
 // Redirect authenticated users to their role-specific dashboard
-Route::get('/dashboard', function () {
-    if (!Auth::check()) {
-        return view('dashboard');
-    }
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     
-    $user = Auth::user();
-    
-    if ($user->hasRole('superadmin')) {
-        return redirect()->route('superadmin.dashboard');
-    } elseif ($user->hasRole('admin')) {
-        return redirect()->route('admin.dashboard');
-    } elseif ($user->hasRole('procurement-officer')) {
-        return redirect()->route('officer.dashboard');
-    } elseif ($user->hasRole('vendor')) {
-        return redirect()->route('vendor.dashboard');
-    }
-    
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+});
 // Role-specific dashboard routes
 Route::middleware(['auth', 'verified'])->group(function () {
     // Superadmin routes
@@ -65,5 +51,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';

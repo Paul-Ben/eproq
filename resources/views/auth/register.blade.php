@@ -127,5 +127,27 @@
                 </div>
             </div>
         </div>
+
+ <!-- Modal Footer with Close Button -->
+            <div class="flex items-center justify-end px-4 py-3 border-t border-gray-200">
+                <button type="button" 
+                        class="px-4 py-2 bg-indigo-600 text-white text-base font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        onclick="document.getElementById('terms-modal').classList.add('hidden')">
+                    I Understand
+                </button>
+            </div>
+        </div>
     </div>
+
+   
+
+    </div>
+     <!-- Add this script to close modal when clicking outside -->
+    <script>
+        document.getElementById('terms-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+    </script>
 </x-guest-layout>
