@@ -17,6 +17,7 @@ Route::get('awards', [FrontEndController::class, 'awards'])->name('awards');
 Route::get('news', [FrontEndController::class,'news'])->name('news');
 Route::get('press', [FrontEndController::class,'press'])->name('press');
 Route::get('contact', [FrontEndController::class,'contact'])->name('contact');
+Route::post('/contact', [FrontEndController::class, 'submit'])->name('contact.submit');
 
 
 // Redirect authenticated users to their role-specific dashboard
