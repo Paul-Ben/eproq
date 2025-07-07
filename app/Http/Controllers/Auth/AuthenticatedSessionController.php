@@ -28,24 +28,36 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if (!Auth::check()) {
-            return redirect()->route('dashboard');
-        }
-
         $user = Auth::user();
         
-        // Redirect users based on their role
-        if ($user->hasRole('superadmin')) {
-            return redirect()->route('superadmin.dashboard');
-        } elseif ($user->hasRole('admin')) {
-            return redirect()->route('admin.dashboard');
-        } elseif ($user->hasRole('procurement-officer')) {
-            return redirect()->route('officer.dashboard');
-        } elseif ($user->hasRole('vendor')) {
-            return redirect()->route('vendor.dashboard')->with('success','Welcome to your dashboard');
-        }
+        // Generate and send 2FA code
+        $user->generateTwoFactorCode();
+        $user->notify(new \App\Notifications\TwoFactorCode());
 
-        return redirect()->route('dashboard');
+        // Logout user and store user id in session for verification
+        Auth::logout();
+        session(['two_factor_user_id' => $user->id]);
+
+        return redirect()->route('2fa.index');
+
+        // if (!Auth::check()) {
+        //     return redirect()->route('dashboard');
+        // }
+
+        // $user = Auth::user();
+
+        // // Redirect users based on their role
+        // if ($user->hasRole('superadmin')) {
+        //     return redirect()->route('superadmin.dashboard');
+        // } elseif ($user->hasRole('admin')) {
+        //     return redirect()->route('admin.dashboard');
+        // } elseif ($user->hasRole('procurement-officer')) {
+        //     return redirect()->route('officer.dashboard');
+        // } elseif ($user->hasRole('vendor')) {
+        //     return redirect()->route('vendor.dashboard')->with('success','Welcome to your dashboard');
+        // }
+
+        // return redirect()->route('dashboard');
     }
 
     /**

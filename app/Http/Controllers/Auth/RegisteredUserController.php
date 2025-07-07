@@ -66,6 +66,9 @@ class RegisteredUserController extends Controller
         // Assign vendor role to the newly registered user
         $user->assignRole('vendor');
 
+        // Notify the user about account creation
+        $user->notify(new \App\Notifications\VendorAccountCreated());
+
         event(new Registered($user));
 
         Auth::login($user);
