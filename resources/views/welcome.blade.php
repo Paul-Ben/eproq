@@ -181,7 +181,7 @@
         <section class="relative bg-[#4BA35A] text-white overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0">
-                <img src="/assets/images/image-1.png" alt="Contractors" class="object-cover w-full h-full opacity-90" />
+                <img src="{{asset('/assets/images/image-1.png')}}" alt="Contractors" class="object-cover w-full h-full opacity-90" />
                 <div class="absolute inset-0"></div>
             </div>
 
@@ -198,11 +198,11 @@
 
                 <!-- Buttons -->
                 <div class="flex flex-col justify-center gap-4 mt-8 sm:flex-row">
-                    <a href="#"
+                    <a href="{{route('tenders')}}"
                         class="px-6 py-3 bg-green-800 text-white rounded-full hover:bg-gray-100 transition hover:text-green-800 font-jaka font-normal font-base leading-[22.4px]">
                         View Tenders
                     </a>
-                    <a href="#"
+                    <a href="{{route('register')}}"
                         class="px-6 py-3 bg-white/20 border border-white text-[#FFFFFF] rounded-full hover:bg-white hover:text-green-800 transition font-jaka font-normal font-base leading-[22.4px]">
                         Become a Contractor →
                     </a>
@@ -285,13 +285,13 @@
                             class="inline-flex items-center gap-2 bg-[#535353] text-white px-4 py-2 rounded hover:bg-gray-700 font-jaka text-base leading-[22.4px] tracking-[0%] font-normal">
                             Apply Now
                             <span>
-                                <img src="../assets/images/solar_arrow-right-up-broken.png" alt=""
+                                <img src="{{asset('/assets/images/solar_arrow-right-up-broken.png')}}" alt=""
                                     class="w-4 h-4" />
                             </span>
                         </button>
                     </div>
                     <div class="md:w-1/4">
-                        <img src="../assets/images/road.png" alt="Road Rehabilitation" class="object-cover w-full h-full" />
+                        <img src="{{asset('/assets/images/road.png')}}" alt="Road Rehabilitation" class="object-cover w-full h-full" />
                     </div>
                 </div>
 
@@ -328,13 +328,13 @@
                             class="inline-flex items-center gap-2 bg-[#535353] text-white px-4 py-2 rounded hover:bg-gray-700 font-jaka text-base leading-[22.4px] tracking-[0%] font-normal">
                             Apply Now
                             <span>
-                                <img src="../assets/images/solar_arrow-right-up-broken.png" alt=""
+                                <img src="{{asset('/assets/images/solar_arrow-right-up-broken.png')}}" alt=""
                                     class="w-4 h-4" />
                             </span>
                         </button>
                     </div>
                     <div class="md:w-1/4">
-                        <img src="../assets/images/hospital.png" alt="Road Rehabilitation"
+                        <img src="{{asset('/assets/images/hospital.png')}}" alt="Road Rehabilitation"
                             class="object-cover w-full h-full" />
                     </div>
                 </div>
@@ -372,13 +372,13 @@
                             class="inline-flex items-center gap-2 bg-[#535353] text-white px-4 py-2 rounded hover:bg-gray-700 font-jaka text-base leading-[22.4px] tracking-[0%] font-normal">
                             Apply Now
                             <span>
-                                <img src="../assets/images/solar_arrow-right-up-broken.png" alt=""
+                                <img src="{{asset('/assets/images/solar_arrow-right-up-broken.png')}}" alt=""
                                     class="w-4 h-4" />
                             </span>
                         </button>
                     </div>
                     <div class="md:w-1/4">
-                        <img src="../assets/images/borehole.png" alt="Road Rehabilitation"
+                        <img src="{{asset('/assets/images/borehole.png')}}" alt="Road Rehabilitation"
                             class="object-cover w-full h-full" />
                     </div>
                 </div>
@@ -414,13 +414,13 @@
                             class="inline-flex items-center gap-2 bg-[#535353] text-white px-4 py-2 rounded hover:bg-gray-700 font-jaka text-base leading-[22.4px] tracking-[0%] font-normal">
                             Apply Now
                             <span>
-                                <img src="../assets/images/solar_arrow-right-up-broken.png" alt=""
+                                <img src="{{asset('/assets/images/solar_arrow-right-up-broken.png')}}" alt=""
                                     class="w-4 h-4" />
                             </span>
                         </button>
                     </div>
                     <div class="md:w-1/4">
-                        <img src="../assets/images/borehole.png" alt="Road Rehabilitation"
+                        <img src="{{asset('/assets/images/borehole.png')}}" alt="Road Rehabilitation"
                             class="object-cover w-full h-full" />
                     </div>
                 </div>
@@ -456,13 +456,13 @@
                             class="inline-flex items-center gap-2 bg-[#535353] text-white px-4 py-2 rounded hover:bg-gray-700 font-jaka text-base leading-[22.4px] tracking-[0%] font-normal">
                             Apply Now
                             <span>
-                                <img src="../assets/images/solar_arrow-right-up-broken.png" alt=""
+                                <img src="{{asset('/assets/images/solar_arrow-right-up-broken.png')}}" alt=""
                                     class="w-4 h-4" />
                             </span>
                         </button>
                     </div>
                     <div class="md:w-1/4">
-                        <img src="../assets/images/borehole.png" alt="Road Rehabilitation"
+                        <img src="{{asset('/assets/images/borehole.png')}}" alt="Road Rehabilitation"
                             class="object-cover w-full h-full" />
                     </div>
                 </div>
@@ -480,7 +480,7 @@
             <div class="grid gap-6 md:gap-8 md:grid-cols-3">
                 <!-- Card 1 -->
                 <div class="overflow-hidden bg-white shadow-sm rounded-xl">
-                    <img src="../assets/images/how-it-work.png" alt="Step 3" class="object-cover w-full h-48" />
+                    <img src="{{asset('/assets/images/how-it-work.png')}}" alt="Step 3" class="object-cover w-full h-48" />
                     <div class="p-6 text-left">
                         <div class="p-1 rounded-[12px] bg-[#D0FFDC] flex w-12 h-6 items-center justify-center text-center">
                             <p class="font-sora font-normal text-[13px] leading-[120%] tracking-[0%] text-[#02611A]">
@@ -500,7 +500,7 @@
 
                 <!-- Card 2 -->
                 <div class="overflow-hidden bg-white shadow-sm rounded-xl">
-                    <img src="../assets/images/how-it-work.png" alt="Step 3" class="object-cover w-full h-48" />
+                    <img src="{{asset('/assets/images/how-it-work.png')}}" alt="Step 3" class="object-cover w-full h-48" />
                     <div class="p-6 text-left">
                         <div class="p-1 rounded-[12px] bg-[#D0FFDC] flex w-12 h-6 items-center justify-center text-center">
                             <p class="font-sora font-normal text-[13px] leading-[120%] tracking-[0%] text-[#02611A]">
@@ -519,7 +519,7 @@
 
                 <!-- Card 3 -->
                 <div class="overflow-hidden bg-white shadow-sm rounded-xl">
-                    <img src="../assets/images/how-it-work.png" alt="Step 3" class="object-cover w-full h-48" />
+                    <img src="{{asset('/assets/images/how-it-work.png')}}" alt="Step 3" class="object-cover w-full h-48" />
                     <div class="p-6 text-left">
                         <div class="p-1 rounded-[12px] bg-[#D0FFDC] flex w-12 h-6 items-center justify-center text-center">
                             <p class="font-sora font-normal text-[13px] leading-[120%] tracking-[0%] text-[#02611A]">
@@ -551,7 +551,7 @@
                         <ul class="space-y-4">
                             <li class="flex items-start">
                                 <span class="flex items-center justify-center w-5 h-5 mt-1 mr-3">
-                                    <img src="../assets/images/check.png" alt="bullet"
+                                    <img src="{{asset('/assets/images/check.png')}}" alt="bullet"
                                         class="object-contain w-4 h-4" />
                                 </span>
                                 <p class="text-[23px] font-sora leading-[120%] tracking-normal text-white">
@@ -561,7 +561,7 @@
 
                             <li class="flex items-start">
                                 <span class="flex items-center justify-center w-5 h-5 mt-1 mr-3">
-                                    <img src="../assets/images/check.png" alt="bullet"
+                                    <img src="{{asset('/assets/images/check.png')}}" alt="bullet"
                                         class="object-contain w-4 h-4" />
                                 </span>
                                 <p class="text-[23px] font-sora leading-[120%] tracking-normal text-white">
@@ -571,7 +571,7 @@
 
                             <li class="flex items-start">
                                 <span class="flex items-center justify-center w-5 h-5 mt-1 mr-3">
-                                    <img src="../assets/images/check.png" alt="bullet"
+                                    <img src="{{asset('/assets/images/check.png')}}" alt="bullet"
                                         class="object-contain w-4 h-4" />
                                 </span>
                                 <p class="text-[23px] font-sora leading-[120%] tracking-normal text-white">
@@ -581,7 +581,7 @@
 
                             <li class="flex items-start">
                                 <span class="flex items-center justify-center w-5 h-5 mt-1 mr-3">
-                                    <img src="../assets/images/check.png" alt="bullet"
+                                    <img src="{{asset('/assets/images/check.png')}}" alt="bullet"
                                         class="object-contain w-4 h-4" />
                                 </span>
                                 <p class="text-[23px] font-sora leading-[120%] tracking-normal text-white">
@@ -594,7 +594,7 @@
                     <!-- Right Image -->
                     <div class="relative">
                         <div class="overflow-hidden bg-gray-200 rounded-lg shadow-xl">
-                            <img src="../assets/images/image 2.png"
+                            <img src="{{asset('/assets/images/image 2.png')}}"
                                 alt="Three professionals in safety vests discussing work"
                                 class="object-cover w-full h-auto" />
                         </div>
@@ -612,7 +612,7 @@
             <div class="relative flex items-center w-full max-w-5xl px-8 py-10 text-white bg-green-800 rounded-xl">
                 <!-- Absolutely Positioned Image -->
                 <div class="absolute bottom-0 right-6 md:block">
-                    <img src="../assets/images/contractor.png" alt="Contractor" class="w-auto h-96" />
+                    <img src="{{asset('/assets/images/contractor.png')}}" alt="Contractor" class="w-auto h-96" />
                     <!-- Replace the image src with your own -->
                 </div>
 

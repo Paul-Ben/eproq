@@ -28,4 +28,33 @@
             </div>
         </div>
     </div>
+     @if (session('success'))
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        title: 'Log in Successful!',
+                        text: '{{ session('success') }}',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#2e8555',
+                        timer: 50000,
+                        timerProgressBar: true
+                    });
+                });
+            </script>
+        @endif
+
+        @if ($errors->any())
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        title: 'Error!',
+                        html: '{!! implode('<br>', $errors->all()) !!}',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#d33'
+                    });
+                });
+            </script>
+        @endif
 </x-app-layout>

@@ -38,6 +38,7 @@
             color: #02611a;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-gray-50">
@@ -53,7 +54,7 @@
                     </div>
                     <div
                         class="hidden sm:block text-[#232323] font-normal text-[11px] tracking-normal font-jaka leading-[120%]">
-                        
+
                         <p>Procurement and Project</p>
                         <p>Management System</p>
                     </div>
@@ -67,7 +68,7 @@
                 <!-- Desktop Navigation -->
                 <nav class="items-center hidden space-x-2 lg:flex">
                     <a href="/" data-page="home"
-                        class="nav-link hover:text-primary transition-colors duration-200 px-3 py-2 rounded-md hover:bg-gray-50 font-sora font-normal text-[19px] leading-[26.6px] tracking-[0%] text-[#232323]">
+                        class="nav-link hover:text-primary transition-colors duration-200 px-3 py-2 rounded-md hover:bg-gray-50 font-sora font-normal text-[19px] leading-[26.6px] tracking-[0%] text-[#232323] {{ request()->is('/') ? '!text-primary bg-gray-100 font-medium' : '' }}">
                         Home
                     </a>
                     <a href="{{ route('about') }}" data-page="about"
@@ -75,7 +76,7 @@
                         About Us
                     </a>
                     <a href="{{ route('tenders') }}" data-page="tenders"
-                        class="nav-link hover:text-primary transition-colors duration-200 px-3 py-2 rounded-md hover:bg-gray-50 font-sora font-normal text-[19px] leading-[26.6px] tracking-[0%] text-[#232323]">
+                        class="nav-link hover:text-primary transition-colors duration-200 px-3 py-2 rounded-md hover:bg-gray-50 font-sora font-normal text-[19px] leading-[26.6px] tracking-[0%] text-[#232323] {{ request()->is('tenders') ? '!text-primary bg-gray-100 font-medium' : '' }}">
                         Tenders
                     </a>
                     <a href="{{ route('awards') }}" data-page="awards"
@@ -131,7 +132,7 @@
                         </div>
                     </div>
 
-                    <a href="contact.html" data-page="contact"
+                    <a href="{{ route('contact') }}" data-page="contact"
                         class="nav-link hover:text-primary transition-colors duration-200 px-3 py-2 rounded-md hover:bg-gray-50 font-sora font-normal text-[19px] leading-[26.6px] tracking-[0%] text-[#232323]">
                         Contact
                     </a>
@@ -140,7 +141,7 @@
                 <!-- Action Buttons -->
                 <div class="flex items-center space-x-4">
                     <!-- Get Started Button -->
-                    <a href="{{route('login')}}">
+                    <a href="{{ route('login') }}">
                         <button
                             class="bg-[#02611A] text-white px-6 py-2.5 rounded-full transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 font-jaka font-normal text-[16px] leading-[24.4px] tracking-[0%]">
                             Get Started
@@ -169,19 +170,19 @@
         <!-- Enhanced Mobile menu -->
         <div id="mobile-menu" class="hidden bg-white border-t border-gray-200 lg:hidden">
             <div class="px-4 pt-4 pb-6 space-y-2">
-                <a href="index.html" data-page="home"
+                <a href="/" data-page="home"
                     class="block px-4 py-3 text-base font-medium text-gray-700 transition-colors duration-200 rounded-lg mobile-nav-link hover:text-green-600 hover:bg-gray-50">
                     Home
                 </a>
-                <a href="about.html" data-page="about"
+                <a href="{{ route('about') }}" data-page="about"
                     class="block px-4 py-3 text-base font-medium text-gray-700 transition-colors duration-200 rounded-lg mobile-nav-link hover:text-green-600 hover:bg-gray-50">
                     About Us
                 </a>
-                <a href="tenders.html" data-page="tenders"
+                <a href="{{ route('tenders') }}" data-page="tenders"
                     class="block px-4 py-3 text-base font-medium text-gray-700 transition-colors duration-200 rounded-lg mobile-nav-link hover:text-green-600 hover:bg-gray-50">
                     Tenders
                 </a>
-                <a href="awards.html" data-page="awards"
+                <a href="{{ route('awards') }}" data-page="awards"
                     class="block px-4 py-3 text-base font-medium text-gray-700 transition-colors duration-200 rounded-lg mobile-nav-link hover:text-green-600 hover:bg-gray-50">
                     Awards
                 </a>
@@ -198,11 +199,11 @@
                         </svg>
                     </button>
                     <div id="mobile-submenu" class="hidden pl-4 space-y-1">
-                        <a href="news.html" data-page="news"
+                        <a href="{{ route('news') }}" data-page="news"
                             class="block px-4 py-2 text-sm text-gray-600 transition-colors duration-200 rounded-lg mobile-nav-link hover:text-green-600 hover:bg-gray-50">
                             News & Updates
                         </a>
-                        <a href="press.html" data-page="press"
+                        <a href="{{ route('press') }}" data-page="press"
                             class="block px-4 py-2 text-sm text-gray-600 transition-colors duration-200 rounded-lg mobile-nav-link hover:text-green-600 hover:bg-gray-50">
                             Press Releases
                         </a>
@@ -213,7 +214,7 @@
                     </div>
                 </div>
 
-                <a href="contact.html" data-page="contact"
+                <a href="{{ route('contact') }}" data-page="contact"
                     class="block px-4 py-3 text-base font-medium text-gray-700 transition-colors duration-200 rounded-lg mobile-nav-link hover:text-green-600 hover:bg-gray-50">
                     Contact
                 </a>

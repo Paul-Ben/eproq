@@ -42,7 +42,7 @@ class AuthenticatedSessionController extends Controller
         } elseif ($user->hasRole('procurement-officer')) {
             return redirect()->route('officer.dashboard');
         } elseif ($user->hasRole('vendor')) {
-            return redirect()->route('vendor.dashboard');
+            return redirect()->route('vendor.dashboard')->with('success','Welcome to your dashboard');
         }
 
         return redirect()->route('dashboard');

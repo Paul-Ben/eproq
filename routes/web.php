@@ -16,6 +16,7 @@ Route::get('tenders', [FrontEndController::class, 'tenders'])->name('tenders');
 Route::get('awards', [FrontEndController::class, 'awards'])->name('awards');
 Route::get('news', [FrontEndController::class,'news'])->name('news');
 Route::get('press', [FrontEndController::class,'press'])->name('press');
+Route::get('contact', [FrontEndController::class,'contact'])->name('contact');
 
 
 // Redirect authenticated users to their role-specific dashboard

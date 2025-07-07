@@ -30,4 +30,9 @@ class FrontEndController extends Controller
     {
         return view('frontend.press');
     }
+
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
 }
