@@ -14,6 +14,7 @@ use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\VerifyCsrfToken;
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\CustomThrottleRequests;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\ValidateSignature;
 use App\Http\Middleware\EnsureUserHasRole;
@@ -46,9 +47,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'auth' => Authenticate::class,
             'guest' => RedirectIfAuthenticated::class,
             'signed' => ValidateSignature::class,
-            'throttle' => ThrottleRequests::class,
+            // 'throttle' => ThrottleRequests::class,
             'can' => Authorize::class,
             'role' => EnsureUserHasRole::class,
+             'customThrottle' => CustomThrottleRequests::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Http\Exceptions\ThrottleRequestsException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,40 +25,27 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        try {
+            $request->authenticate();
 
-        $request->session()->regenerate();
+            $request->session()->regenerate();
 
-        $user = Auth::user();
-        
-        // Generate and send 2FA code
-        $user->generateTwoFactorCode();
-        $user->notify(new \App\Notifications\TwoFactorCode());
+            $user = Auth::user();
 
-        // Logout user and store user id in session for verification
-        Auth::logout();
-        session(['two_factor_user_id' => $user->id]);
+            // Generate and send 2FA code
+            $user->generateTwoFactorCode();
+            $user->notify(new \App\Notifications\TwoFactorCode());
 
-        return redirect()->route('2fa.index');
+            // Logout user and store user id in session for verification
+            Auth::logout();
+            session(['two_factor_user_id' => $user->id]);
 
-        // if (!Auth::check()) {
-        //     return redirect()->route('dashboard');
-        // }
-
-        // $user = Auth::user();
-
-        // // Redirect users based on their role
-        // if ($user->hasRole('superadmin')) {
-        //     return redirect()->route('superadmin.dashboard');
-        // } elseif ($user->hasRole('admin')) {
-        //     return redirect()->route('admin.dashboard');
-        // } elseif ($user->hasRole('procurement-officer')) {
-        //     return redirect()->route('officer.dashboard');
-        // } elseif ($user->hasRole('vendor')) {
-        //     return redirect()->route('vendor.dashboard')->with('success','Welcome to your dashboard');
-        // }
-
-        // return redirect()->route('dashboard');
+            return redirect()->route('2fa.index');
+        } catch (ThrottleRequestsException $e) {
+            return back()->withErrors([
+                'email' => 'Too many login attempts. Please try again in 1 hour.'
+            ]);
+        }
     }
 
     /**
