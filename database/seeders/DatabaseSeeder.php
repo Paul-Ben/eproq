@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
 
         // Run the user seeder to create users with assigned roles
         $this->call(UserSeeder::class);
+
+        $this->call(MdaSeeder::class);
     }
 }
