@@ -24,6 +24,7 @@ class VendorDetail extends Model
         'business_type',
         'terms_accepted',
         'agreed_terms_at',
+        'user_type',
     ];
 
     /**

@@ -43,7 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         })->name('officer.dashboard');
     });
 
-    Route::middleware(['role:vendor'])->group(function () {
+    Route::middleware('role:vendor|contractor')->group(function () {
         Route::get('/vendor/dashboard', function () {
             return view('dashboards.vendor');
         })->name('vendor.dashboard');

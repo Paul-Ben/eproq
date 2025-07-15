@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('tax_identification_number');
             $table->string('cac_registration_number');
             $table->string('business_type');
+            $table->string('user_type');
             $table->timestamps();
         });
     }
