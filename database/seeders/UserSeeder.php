@@ -44,6 +44,9 @@ class UserSeeder extends Seeder
             'tax_identification_number' => 'TIN123456',
             'cac_registration_number' => 'CAC987654',
             'business_type' => 'Construction',
+            'user_type' => 'vendor',
+            'terms_accepted' => true,
+            'agreed_terms_at' => now(),
         ]);
     }
 }
