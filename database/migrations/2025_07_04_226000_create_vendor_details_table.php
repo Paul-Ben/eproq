@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('tax_identification_number');
             $table->string('cac_registration_number');
             $table->string('business_type');
+            $table->string('certificate_of_incorporation')->nullable();
+            $table->string('tin_certificate')->nullable();
+            $table->string('company_profile')->nullable();
+            $table->string('past_project_evidence')->nullable();
+            $table->string('other_document')->nullable();
             $table->timestamps();
         });
     }
