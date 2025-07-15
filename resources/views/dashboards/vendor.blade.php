@@ -1,6 +1,6 @@
 @extends('layouts.vendor')
 @section('content')
-    <h2 class="text-2xl font-bold text-[#232323] mb-6">Welcome, vendor!</h2>
+    <h2 class="text-2xl font-bold text-[#232323] mb-6">Welcome, {{ Auth::user()->name }}!</h2>
     <!-- Dashboard Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <!-- Total Tenders Card -->
