@@ -47,6 +47,10 @@
                     class="block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
                     Manage Users
                 </a>
+                <a href="{{ route('mda.index') }}"
+                    class="block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
+                    Manage MDAs
+                </a>
                 <a href="#"
                     class="block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
                     Bid Submissions
