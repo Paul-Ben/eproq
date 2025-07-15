@@ -24,6 +24,11 @@ class VendorDetail extends Model
         'business_type',
         'terms_accepted',
         'agreed_terms_at',
+        'certificate_of_incorporation',
+        'tin_certificate',
+        'company_profile',
+        'past_project_evidence',
+        'other_document',
     ];
 
     /**

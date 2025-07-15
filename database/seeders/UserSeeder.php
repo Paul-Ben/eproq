@@ -32,10 +32,18 @@ class UserSeeder extends Seeder
         ])->assignRole('procurement-officer');
 
         // Create Vendor user
-        User::create([
+        $vendor = User::create([
             'name' => 'Vendor',
             'email' => 'vendor@eproq.com',
             'password' => Hash::make('password'),
-        ])->assignRole('vendor');
+        ]);
+        $vendor->assignRole('vendor');
+        $vendor->vendorDetail()->create([
+            'company_name' => 'Acme Corp LTD',
+            'phone_number' => '08012345678',
+            'tax_identification_number' => 'TIN123456',
+            'cac_registration_number' => 'CAC987654',
+            'business_type' => 'Construction',
+        ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Vendor\VendorController;
 
 
 Route::get('/', function () {
@@ -47,6 +48,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/vendor/dashboard', function () {
         return view('dashboards.vendor');
     })->middleware('role:vendor')->name('vendor.dashboard');
+});
+
+Route::middleware(['auth', 'verified', 'role:vendor'])->group(function () {
+    Route::get('/vendor/adddocument', [VendorController::class, 'addDocument'])->name('vendor.adddocument');
+    Route::post('/vendor/adddocument', [VendorController::class, 'storeDocument'])->name('vendor.storeDocument');
 });
 
 Route::middleware('auth')->group(function () {
