@@ -661,9 +661,27 @@
                         <x-input-error :messages="$errors->get('cac_registration_number')" class="mt-2" />
                     </div>
                 </div>
-
+                <!-- Company Name and User Type -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="company_name" class="block font-jaka font-bold text-sm text-[#292929] mb-1">Company Name</label>
+                        <input id="company_name" name="company_name" type="text" required
+                            value="{{ old('company_name') }}"
+                            class="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-benue-green placeholder-gray-400" />
+                        <x-input-error :messages="$errors->get('tax_identification_number')" class="mt-2" />
+                    </div>
+                    <div>
+                        <label for="user_type" class="block font-jaka font-bold text-sm text-[#292929] mb-1">User Type</label>
+                        <select id="user_type" name="user_type" class="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-benue-green placeholder-gray-400">
+                            <option value="">Select</option>
+                            <option value="vendor">Vendor</option>
+                            <option value="contractor">Contractor</option>
+                        </select>
+                        <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
+                    </div>
+                </div>
                 <!-- Company Name (Centered, Spans Both Columns) -->
-                <div class="md:col-span-2 flex flex-col items-center">
+                {{-- <div class="md:col-span-2 flex flex-col items-center">
                     <div class="w-full md:w-2/3">
                         <label for="company_name" class="block font-jaka font-bold text-sm text-[#292929] mb-1 text-center">Company Name</label>
                         <input id="company_name" name="company_name" type="text" required
@@ -671,7 +689,7 @@
                             class="w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-benue-green placeholder-gray-400 text-center" />
                         <x-input-error :messages="$errors->get('company_name')" class="mt-2" />
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Terms and Conditions (Centered, Spans Both Columns) -->
                 <div class="md:col-span-2 flex flex-col items-center">

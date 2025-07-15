@@ -40,6 +40,7 @@ class RegisteredUserController extends Controller
             'cac_registration_number' => ['required', 'string', 'max:50'],
             'business_type' => ['required', 'string', 'max:100'],
             'terms' => ['required', 'accepted'],
+            'user_type' => ['required', 'in:vendor,contractor'],
         ], [
             'terms.required' => 'You must accept the Terms and Conditions to register.',
             'terms.accepted' => 'You must accept the Terms and Conditions to register.',
@@ -61,10 +62,18 @@ class RegisteredUserController extends Controller
             'business_type' => $request->business_type,
             'terms_accepted' => true,
             'agreed_terms_at' => now(),
+            'user_type' => $request->user_type,
         ]);
 
         // Assign vendor role to the newly registered user
         $user->assignRole('vendor');
+
+        // Check if user type is 'vendor'
+        if ($request->user_type === 'vendor') {
+            $user->assignRole('vendor');
+        } else {
+            $user->assignRole('contractor');
+        }
 
         // Notify the user about account creation
         $user->notify(new \App\Notifications\VendorAccountCreated());

@@ -22,7 +22,7 @@ class DashboardController extends Controller
             return redirect()->route('admin.dashboard');
         } elseif ($user->hasRole('procurement-officer')) {
             return redirect()->route('officer.dashboard');
-        } elseif ($user->hasRole('vendor')) {
+        } elseif ($user->hasRole(['vendor','contractor'])) {
             return redirect()->route('vendor.dashboard');
         }
 
