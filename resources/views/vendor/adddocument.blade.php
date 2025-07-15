@@ -13,7 +13,7 @@
     </div>
     <!-- Form Card -->
     <div class="bg-white rounded-xl shadow-2xl p-8 mb-16">
-        <h2 class="text-2xl font-bold text-green-800 mb-6 text-center">Upload Vendor Documents</h2>
+        <h2 class="text-2xl font-bold text-black mb-6 text-left">Upload Vendor Documents</h2>
         <div class="bg-blue-100 border border-blue-300 text-blue-800 rounded-lg px-4 py-3 mb-6 text-sm font-medium w-full">
             <ul class="list-disc pl-5">
                 <li>All files should be in <span class="font-semibold">PDF</span> format.</li>

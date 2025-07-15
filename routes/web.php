@@ -52,6 +52,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         })->name('vendor.dashboard');
         Route::get('/vendor/adddocument', [VendorController::class, 'addDocument'])->name('vendor.adddocument');
         Route::post('/vendor/adddocument', [VendorController::class, 'storeDocument'])->name('vendor.storeDocument');
+        Route::get('/vendor/alldocuments', [VendorController::class, 'allDocuments'])->name('vendor.alldocuments');
+        Route::get('/vendor/document/{vendorDetail}/{field}/download', [VendorController::class, 'downloadDocument'])->name('vendor.document.download');
+        Route::put('/vendor/documents/{vendorDetail}/{field}/update', [VendorController::class, 'updateDocument'])->name('vendor.documents.update');
     });
 
     // User Management & MDA Management (Superadmin only)
