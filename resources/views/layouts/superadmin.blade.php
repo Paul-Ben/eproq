@@ -7,6 +7,8 @@
     <title>Vendor Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
     <style>
         .font-sora {
             font-family: "Sora", sans-serif;
@@ -30,20 +32,24 @@
         <aside id="sidebar"
             class="fixed inset-y-0 left-0 z-30 w-64 bg-white border-r border-gray-200 shadow-lg flex flex-col transform transition-transform duration-300 ease-in-out translate-x-0">
             <div class="flex items-center px-6 py-6 border-b border-gray-100">
-                <img src="{{asset('/assets/images/benue-logo.png')}}" alt="Logo" class="w-10 h-10 mr-3" />
+                <img src="{{ asset('/assets/images/benue-logo.png') }}" alt="Logo" class="w-10 h-10 mr-3" />
                 <div>
                     <div class="font-bold text-[#232323] text-lg leading-tight">BSPP</div>
                     <div class="text-xs text-gray-500 font-jaka">Superadmin Portal</div>
                 </div>
             </div>
             <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-                <a href="#"
+                <a href="{{ route('superadmin.dashboard') }}"
                     class="block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition side-link-active">
                     Dashboard
                 </a>
-                <a href="#"
+                <a href="{{ route('user-management.index') }}"
                     class="block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
-                    My Tenders
+                    Manage Users
+                </a>
+                <a href="{{ route('mda.index') }}"
+                    class="block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
+                    Manage MDAs
                 </a>
                 <a href="#"
                     class="block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition">
@@ -93,8 +99,8 @@
                     <button id="userMenuBtn" class="flex items-center space-x-3 focus:outline-none" aria-haspopup="true"
                         aria-expanded="false">
                         <span class="text-right">
-                            <span class="block font-semibold text-[#232323]">{{Auth::user()->name}}</span>
-                            <span class="block text-xs text-gray-500">{{Auth::user()->email}}</span>
+                            <span class="block font-semibold text-[#232323]">{{ Auth::user()->name }}</span>
+                            <span class="block text-xs text-gray-500">{{ Auth::user()->email }}</span>
                         </span>
                         <svg class="w-6 h-6 ml-1 text-green-700" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
@@ -192,6 +198,8 @@
             userDropdown.classList.add('hidden');
         });
     </script>
+    {{-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script> --}}
 </body>
 
 </html>

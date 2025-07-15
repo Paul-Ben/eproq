@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Mail;
 
 class FrontEndController extends Controller
 {
+    public function index(Request $request)
+    {
+        return view('welcome');
+    }
+
     public function about()
     {
         return view('frontend.about');
