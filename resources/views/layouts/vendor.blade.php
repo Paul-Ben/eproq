@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vendor Dashboard</title>
+    <title>Eprocurement Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
@@ -47,11 +47,17 @@
                     <span class="sidebar-icon mr-3"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2a4 4 0 014-4h4m0 0V7a4 4 0 00-4-4H7a4 4 0 00-4 4v10a4 4 0 004 4h4" /></svg></span>
                     <span class="sidebar-text">My Tenders</span>
                 </a>
+                @role('contractor')
                 <a href="#" class="sidebar-link block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition flex items-center">
                     <span class="sidebar-icon mr-3"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
                     <span class="sidebar-text">Bid Submissions</span>
                 </a>
+
+                @endrole
+                <a href="{{ route('vendor.adddocument') }}" class="sidebar-link block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition flex items-center">
+
                 <a href="{{ route('vendor.alldocuments') }}" class="sidebar-link block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition flex items-center">
+
                     <span class="sidebar-icon mr-3"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg></span>
                     <span class="sidebar-text">Document Upload</span>
                 </a>
