@@ -39,7 +39,7 @@
                 </div>
             </div>
             <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-                <a href="#" class="sidebar-link block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition side-link-active flex items-center">
+                <a href="{{ route('vendor.dashboard') }}" class="sidebar-link block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition side-link-active flex items-center">
                     <span class="sidebar-icon mr-3"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" /></svg></span>
                     <span class="sidebar-text">Dashboard</span>
                 </a>
@@ -52,8 +52,12 @@
                     <span class="sidebar-icon mr-3"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></span>
                     <span class="sidebar-text">Bid Submissions</span>
                 </a>
+
                 @endrole
                 <a href="{{ route('vendor.adddocument') }}" class="sidebar-link block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition flex items-center">
+
+                <a href="{{ route('vendor.alldocuments') }}" class="sidebar-link block px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition flex items-center">
+
                     <span class="sidebar-icon mr-3"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg></span>
                     <span class="sidebar-text">Document Upload</span>
                 </a>
@@ -92,8 +96,8 @@
                     <button id="userMenuBtn" class="flex items-center space-x-3 focus:outline-none" aria-haspopup="true"
                         aria-expanded="false">
                         <span class="text-right">
-                            <span class="block font-semibold text-[#232323]">John Doe</span>
-                            <span class="block text-xs text-gray-500">john.doe@email.com</span>
+                            <span class="block font-semibold text-[#232323]">{{ Auth::user()->name }}</span>
+                            <span class="block text-xs text-gray-500">{{ Auth::user()->email }}</span>
                         </span>
                         <svg class="w-6 h-6 ml-1 text-green-700" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
